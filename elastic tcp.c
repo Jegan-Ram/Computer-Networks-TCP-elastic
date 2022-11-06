@@ -1,5 +1,6 @@
 #include <linux/module.h>
 #include <net/tcp.h>
+#include <stdio.h>
 
 #ifdef BIT
 #define SCALE	100
@@ -73,7 +74,6 @@ static void tcp_elastic_event(struct sock *sk, enum tcp_ca_event event)
 	case CA_EVENT_LOSS:
 		ca->maxrtt = 0;
 	default:
-		/* don't care */
 		break;
 	}
 }
